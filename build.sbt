@@ -15,6 +15,7 @@ val RefinedVersion = "0.10.1"
 val CirceVersion = "0.14.3"
 val DeclineVersion = "2.4.0"
 val TsecVersion = "0.4.0"
+val PureConfigVersion = "0.17.2"
 
 lazy val root = (project in file("."))
   .settings(
@@ -31,9 +32,13 @@ lazy val root = (project in file("."))
       "ch.qos.logback" % "logback-classic" % LogbackVersion,
       "is.cir" %% "ciris" % CirisVersion,
       "is.cir" %% "ciris-refined" % CirisVersion,
+      "is.cir" %% "ciris-http4s" % CirisVersion,
+      "com.github.pureconfig" %% "pureconfig-core" % PureConfigVersion,
+      "com.github.pureconfig" %% "pureconfig-http4s" % PureConfigVersion,
+      "com.github.pureconfig" %% "pureconfig-cats-effect" % PureConfigVersion,
       "com.github.cb372" %% "cats-retry" % CatsRetryVersion,
       "eu.timepit" %% "refined" % RefinedVersion,
-      "eu.timepit" %% "refined-cats" % RefinedVersion, // optional
+      "eu.timepit" %% "refined-cats" % RefinedVersion,
       "io.circe" %% "circe-refined" % CirceVersion,
       "com.monovore" %% "decline" % DeclineVersion,
       "com.monovore" %% "decline-refined" % DeclineVersion,

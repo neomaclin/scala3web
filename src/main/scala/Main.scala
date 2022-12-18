@@ -5,9 +5,8 @@ import cats.syntax.all.*
 import org.typelevel.log4cats._
 import org.typelevel.log4cats.slf4j._
 
-object Main extends ResourceApp:
+object Main extends ResourceApp.Forever:
   implicit val logger: SelfAwareStructuredLogger[IO] = Slf4jFactory[IO].getLogger
 
-  def run(args: List[String]): Resource[IO, ExitCode] =
-    (Config.load[IO] >>= Server.init[IO]) *> Resource.pure(ExitCode.Success)
+  def run(args: List[String]): Resource[IO, Unit] = Config.load[IO] >>= Server.init[IO]
 

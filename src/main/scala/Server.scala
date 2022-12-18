@@ -18,5 +18,6 @@ object Server:
       .withHost(ipv4"0.0.0.0")
       .withPort(port"8080")
       .withHttpApp(Router("/" -> Routes.health[F]).orNotFound)
-      .build >> Resource.eval(Async[F].never)
+      .build
+      .as(())
 
